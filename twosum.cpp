@@ -1,24 +1,23 @@
 #include <iostream>
-#include <unordered_map>
+#include <unordered_map> // includiamo librerie
 #include <vector>
-using namespace std;
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+using namespace std;  // includendo namespace std, non consigliato solitamente
+class Solution { // creiamo classe chiamata soluzione
+public: // specificatore d'accesso pubblico
+    vector<int> twoSum(vector<int>& nums, int target) { // inizializziamo/ dichiariamo una funzione 
 
-    unordered_map<int, int> hashv;
+    unordered_map<int, int> hashv;  //inizializziamo questo contenitore di valori interi e gli assegniamo il nome hashv
 
-    for (auto i=0; i < nums.size();++i){
-
-     int res = target - nums[i];
-     if (hashv.find(res) != hashv.end()){
+    for (auto i=0; i < nums.size();++i){  // i è 0, i incrementa/va avanti fin quando non raggiunge il totale di nums 
+     int res = target - nums[i]; // dichiariamo intero res che corrisponde al numero "da scomporre in due addizioni" - l’elemento in posizione i di nums
+     if (hashv.find(res) != hashv.end()){ //  cerca res e se è diverso da hashv end ovvero la fine dell'unordered/lista etc esegue il comando sotto
 
         return {hashv[res],i};
 
 
      }
 
-     hashv[nums[i]] = i;
+     hashv[nums[i]] = i; // salvo nel unordered map il valore dell'elemento  in posizione i e vedo dove si trova facendo = i
 
 
     }
@@ -30,6 +29,7 @@ public:
 
 };
 
+// non è necessario spiegare qua sotto anche perchè mi sono seccato
     
 int main(){
 
